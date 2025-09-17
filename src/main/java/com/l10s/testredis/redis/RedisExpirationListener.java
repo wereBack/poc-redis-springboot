@@ -1,4 +1,4 @@
-package com.l10s.testredis.config;
+package com.l10s.testredis.redis;
 
 import com.l10s.testredis.reservations.ReservationService;
 import org.slf4j.Logger;

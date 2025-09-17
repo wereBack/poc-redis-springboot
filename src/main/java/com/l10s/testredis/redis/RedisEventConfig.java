@@ -1,4 +1,4 @@
-package com.l10s.testredis.config;
+package com.l10s.testredis.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
