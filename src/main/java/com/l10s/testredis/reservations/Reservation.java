@@ -1,6 +1,8 @@
-package com.l10s.testredis.models;
+package com.l10s.testredis.reservations;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
@@ -30,5 +32,9 @@ public class Reservation {
         if (this.status == null) {
             this.status = "RESERVED";
         }
+    }
+
+    @Repository
+    public static interface ReservationRepository extends JpaRepository<Reservation, Long> {
     }
 }
