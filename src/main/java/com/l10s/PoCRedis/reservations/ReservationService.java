@@ -1,8 +1,8 @@
 package com.l10s.PoCRedis.reservations;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.l10s.PoCRedis.redis.RedisService;
 
@@ -11,16 +11,11 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ReservationService {
     private static final Logger logger = LoggerFactory.getLogger(ReservationService.class);
     private final ReservationRepository reservationRepository;
     private final RedisService redisService;
-
-    @Autowired
-    public ReservationService(ReservationRepository reservationRepository, RedisService redisService) {
-        this.reservationRepository = reservationRepository;
-        this.redisService = redisService;
-    }
 
     public Optional<Reservation> findById(Long id) {
         return reservationRepository.findById(id);
