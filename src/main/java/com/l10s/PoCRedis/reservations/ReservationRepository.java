@@ -1,4 +1,4 @@
-package com.l10s.testredis.reservations;
+package com.l10s.PoCRedis.reservations;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

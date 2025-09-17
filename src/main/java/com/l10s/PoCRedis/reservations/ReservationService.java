@@ -1,10 +1,10 @@
-package com.l10s.testredis.reservations;
+package com.l10s.PoCRedis.reservations;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.l10s.testredis.redis.RedisService;
+import com.l10s.PoCRedis.redis.RedisService;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.l10s.testredis.redis;
+package com.l10s.PoCRedis.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

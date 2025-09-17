@@ -1,4 +1,4 @@
-package com.l10s.testredis.reservations;
+package com.l10s.PoCRedis.reservations;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

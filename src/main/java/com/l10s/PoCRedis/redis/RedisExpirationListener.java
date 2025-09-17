@@ -1,6 +1,6 @@
-package com.l10s.testredis.redis;
+package com.l10s.PoCRedis.redis;
 
-import com.l10s.testredis.reservations.ReservationService;
+import com.l10s.PoCRedis.reservations.ReservationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
