@@ -13,11 +13,11 @@ import java.util.Optional;
 @Service
 public class ReservationService {
     private static final Logger logger = LoggerFactory.getLogger(ReservationService.class);
-    private final Reservation.ReservationRepository reservationRepository;
+    private final ReservationRepository reservationRepository;
     private final RedisService redisService;
 
     @Autowired
-    public ReservationService(Reservation.ReservationRepository reservationRepository, RedisService redisService) {
+    public ReservationService(ReservationRepository reservationRepository, RedisService redisService) {
         this.reservationRepository = reservationRepository;
         this.redisService = redisService;
     }

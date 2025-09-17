@@ -33,8 +33,4 @@ public class Reservation {
             this.status = "RESERVED";
         }
     }
-
-    @Repository
-    public static interface ReservationRepository extends JpaRepository<Reservation, Long> {
-    }
 }
