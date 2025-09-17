@@ -1,4 +1,4 @@
-package com.l10s.testredis.models;
+package com.l10s.PoCRedis.reservations;
 import jakarta.persistence.*;
 import lombok.Data;
 

@@ -1,7 +1,4 @@
-package com.l10s.testredis.controllers;
-
-import com.l10s.testredis.models.Reservation;
-import com.l10s.testredis.services.ReservationService;
+package com.l10s.PoCRedis.reservations;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

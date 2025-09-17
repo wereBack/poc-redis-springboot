@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.l10s</groupId>
-    <artifactId>testredis</artifactId>
+    <artifactId>PoCRedis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>testredis</name>
-    <description>testredis</description>
+    <name>PoCRedis</name>
+    <description>PoCRedis</description>
     <url/>
     <licenses>
         <license/>

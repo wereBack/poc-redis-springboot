@@ -1,6 +1,6 @@
-package com.l10s.testredis.config;
+package com.l10s.PoCRedis.redis;
 
-import com.l10s.testredis.services.ReservationExpirationService;
+import com.l10s.PoCRedis.reservations.ReservationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class RedisExpirationListener implements MessageListener {
     private static final Logger logger = LoggerFactory.getLogger(RedisExpirationListener.class);
     
     @Autowired
-    private ReservationExpirationService reservationExpirationService;
+    private ReservationService reservationService;
 
     @Override
     public void onMessage(Message message, byte[] pattern) {
@@ -44,7 +44,7 @@ public class RedisExpirationListener implements MessageListener {
             Long id = Long.parseLong(reservationId);
             
             // Delegar el procesamiento al servicio especializado
-            reservationExpirationService.processExpiredReservation(id);
+            reservationService.processExpiredReservation(id);
             
         } catch (NumberFormatException e) {
             logger.error("Error parseando ID de reserva: {}", reservationId, e);
