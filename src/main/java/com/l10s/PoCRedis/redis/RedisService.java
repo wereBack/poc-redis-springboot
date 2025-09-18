@@ -8,9 +8,12 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Service
-@RequiredArgsConstructor
 public class RedisService {
-    private RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
+
+    public RedisService(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     public void saveReservationWithTTL(String reservationId, Object reservationData, Duration ttl) {
         String key = "reservation:" + reservationId;

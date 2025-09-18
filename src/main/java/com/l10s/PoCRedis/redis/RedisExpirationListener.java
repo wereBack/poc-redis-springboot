@@ -1,7 +1,6 @@
 package com.l10s.PoCRedis.redis;
 
 import com.l10s.PoCRedis.reservations.ReservationService;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.connection.Message;
@@ -9,12 +8,15 @@ import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class RedisExpirationListener implements MessageListener {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisExpirationListener.class);
 
-    private ReservationService reservationService;
+    private final ReservationService reservationService;
+
+    public RedisExpirationListener(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
 
     @Override
     public void onMessage(Message message, byte[] pattern) {

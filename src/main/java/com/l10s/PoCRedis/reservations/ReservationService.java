@@ -11,11 +11,15 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class ReservationService {
     private static final Logger logger = LoggerFactory.getLogger(ReservationService.class);
     private final ReservationRepository reservationRepository;
     private final RedisService redisService;
+
+    public ReservationService(ReservationRepository reservationRepository, RedisService redisService) {
+        this.reservationRepository = reservationRepository;
+        this.redisService = redisService;
+    }
 
     public Optional<Reservation> findById(Long id) {
         return reservationRepository.findById(id);
