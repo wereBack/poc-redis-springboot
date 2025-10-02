@@ -13,8 +13,7 @@ import java.util.Optional;
 public class ReservationController {
     private final ReservationService reservationService;
 
-    public ReservationController(ReservationService reservationService)
-    {
+    public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
     }
 

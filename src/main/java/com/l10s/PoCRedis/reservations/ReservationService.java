@@ -1,8 +1,8 @@
 package com.l10s.PoCRedis.reservations;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.l10s.PoCRedis.redis.RedisService;
 
@@ -16,7 +16,6 @@ public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final RedisService redisService;
 
-    @Autowired
     public ReservationService(ReservationRepository reservationRepository, RedisService redisService) {
         this.reservationRepository = reservationRepository;
         this.redisService = redisService;
@@ -72,19 +71,6 @@ public class ReservationService {
     }
 
     /**
-     * Verifica si una reserva debería expirar basándose en su expiresAt
-     * @param reservation La reserva a verificar
-     * @return true si debería expirar, false si no
-     */
-    private boolean shouldExpireReservation(Reservation reservation) {
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expiresAt = reservation.getExpiresAt();
-
-        // Si ya pasó el tiempo de expiración, es válido expirar
-        return now.isAfter(expiresAt) || now.isEqual(expiresAt);
-    }
-
-    /**
      * Maneja la lógica de negocio para una reserva expirada
      * @param reservation La reserva expirada
      */
@@ -98,10 +84,6 @@ public class ReservationService {
             reservationRepository.save(reservation);
 
             logger.info("Reserva {} marcada como EXPIRED", reservation.getId());
-
-            // Eliminar completamente de la BD
-            // reservationRepository.delete(reservation);
-            // logger.info("Reserva {} eliminada completamente", reservation.getId());
 
         } catch (Exception e) {
             logger.error("Error manejando reserva expirada: {}", reservation.getId(), e);
