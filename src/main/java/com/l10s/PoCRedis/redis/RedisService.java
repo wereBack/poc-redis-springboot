@@ -22,17 +22,18 @@ public class RedisService {
 
     public boolean existsReservation(String reservationId) {
         String key = "reservation:" + reservationId;
-        return redisTemplate.hasKey(key);
+        return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }
 
     public boolean deleteReservation(String reservationId) {
         String key = "reservation:" + reservationId;
-        return redisTemplate.delete(key);
+        return Boolean.TRUE.equals(redisTemplate.delete(key));
     }
 
     public long getReservationTTL(String reservationId) {
         String key = "reservation:" + reservationId;
-        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+        Long ttl = redisTemplate.getExpire(key, TimeUnit.SECONDS);
+        return ttl != null ? ttl : -1L; // -1: sin expiración, -2: no existe (según Redis)
     }
 
 }
